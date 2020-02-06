@@ -1,0 +1,23 @@
+<!--pages/image/image.wxml-->
+<text>image的基本使用</text>
+<!-- image组件可以写成单标签，也可以写成双标签 -->
+<!-- image组件默认宽度320px,高度240px -->
+<!-- image组件行内块级元素 -->
+<image />
+<text>哈哈</text>
+<!-- 2.src:图片地址url -->
+<image src="https://res.wx.qq.com/wxdoc/dist/assets/img/0.4cb08bb4.jpg"></image>
+
+<!-- 2.从相册中取图片 -->
+<button bindtap="handleChooseAlbum">选择图片</button>
+<image src="{{ imagePath }}" />
+
+<!-- 3.bindload: 监听图片加载完成 -->
+<image src="https://res.wx.qq.com/wxdoc/dist/assets/img/0.4cb08bb4.jpg"
+       bindload="handleImageLoad"
+       lazy-load="{{ true }}"></image>
+
+<!-- 4.show-menu-by-longpress:长按图片出现识别小程序码 -->
+<image show-menu-by-longpress
+       src="https://res.wx.qq.com/wxdoc/dist/assets/img/0.4cb08bb4.jpg"></image>
+
