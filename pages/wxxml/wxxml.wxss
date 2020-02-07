@@ -1,0 +1,8 @@
+/* pages/wxxml/wxxml.wxss */
+.box{
+  font-size: 64rpx;
+}
+
+.active{
+  color:red;
+}

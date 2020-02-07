@@ -1,0 +1,42 @@
+<!--pages/wxxml/wxxml.wxml-->
+<!-- 1.wxml的格式 -->
+<!-- wxml区分大小写 -->
+
+<!-- 2.Mustache -->
+<view>{{ message }}</view>
+<view>{{ firstname }} {{ lastname }}</view>
+<view>{{ firstname + ' ' + lastname}}</view>
+<view>{{ age>=18 ? '成年人' : '未成年人' }}</view>
+<view>{{ nowTime }}</view>
+
+<button size="mini" bindtap="handleSwitchColor">切换颜色</button>
+<view class='box {{ isActive ? "active" : "" }}'>哈哈哈</view>
+
+<map class="map" longitude="116.11" latitude="39.6"></map>
+
+<view>-----------条件判断---------------</view>
+<!-- wx:if的使用 -->
+<button size="mini" bindtap="handleSwitchShow">切换显示</button>
+<view wx:if="{{ isShow }}">哈哈哈\n</view>
+
+<!-- wx:elif/wx:else -->
+<button size="mini" bindtap="handleIncrement">分数递增6</button>
+<view wx:if="{{ score >= 90 }}">优秀</view>
+<view wx:elif="{{ score >= 80 }}">良好</view>
+<view wx:elif="{{ score >= 60 }}">及格</view>
+<view wx:else>不及格</view>
+
+
+<!-- hidden属性 -->
+<!-- 可以使用wx:if代替hidden属性 -->
+<view wx:if="{{ false }}">我是wx:if代替hidden属性控制的内容1--隐藏</view>
+<view wx:if="{{ true }}">我是wx:if代替hidden属性控制的内容2--显示</view>
+
+<!-- hidden隐藏组件时，组件是存在的 -->
+<view>---------------------</view>
+<view hidden="{{ false }}">我是hidden属性控制的内容1--显示</view>
+<view>我是hidden属性控制的内容2--显示</view>
+<view hidden="{{ true }}">我是hidden属性控制的内容3--隐藏</view>
+<!-- 
+切换频率使用高的使用 hidden
+切换频率使用低的使用 wx:if -->
