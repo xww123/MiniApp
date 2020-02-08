@@ -1,0 +1,4 @@
+<template name="contentColumn">
+  <text>{{ tempText }}</text>
+  <view>{{ content }}</view>
+</template>

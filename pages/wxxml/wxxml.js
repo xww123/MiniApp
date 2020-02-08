@@ -12,7 +12,14 @@ Page({
     nowTime: new Date().toLocaleString(),
     isActive: false,
     isShow: false,
-    score: 50
+    score: 50,
+    movies:['星际穿越','笑傲江湖','大话西游'],
+    nums:[
+      [10,14,11,19],
+      [20,23,31,43],
+      [110,124,211,319]
+    ],
+    letters:['a','b','c']
   },
   onLoad(){
     setInterval(()=>{

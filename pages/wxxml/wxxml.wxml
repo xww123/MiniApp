@@ -40,3 +40,53 @@
 <!-- 
 切换频率使用高的使用 hidden
 切换频率使用低的使用 wx:if -->
+
+<view>----------列表渲染-------------</view>
+<!-- 1.wx:for的回顾 -->
+<!-- 1.1遍历数组/字符串/数字 -->
+<view wx:for="{{ [] }}"></view>
+<!-- wx:for="['']" 是字符串 -->
+<view wx:for="['']"></view>
+
+
+<view wx:for="{{ ['abc','cba','nba'] }}">{{ item }} {{ index }}</view>
+<view wx:for="codewhy">{{ item }} {{ index }}</view>
+<view wx:for="{{ 9 }}">{{ item }}</view>
+
+<!-- block不是组件，只用于包裹一组组件 -->
+<block>
+  <button>按钮</button>
+  <view>呵呵呵</view>
+  <text>我是内容</text>
+</block>
+
+<!-- 3.item\index起别名字 -->
+<view wx:for="{{ movies }}" wx:for-item="movie" wx:for-index="i">{{ movie }} {{ i }}</view>
+
+<block wx:for="{{ nums }}" wx:for-item="inner_nums">
+  <block wx:for="{{ inner_nums }}">
+    <view>{{ item }}</view>
+  </block>
+</block>
+
+<!-- 4.key的作用 -->
+<view class="container">
+  <view wx:for="{{ letters }}" wx:key="{{ item }}">{{ item }}</view>
+</view>
+
+<view>---------template-------------</view>
+<!-- 之前的时候小程序不支持自定义组件，为了进行代码的复用：template -->
+<!-- 模板中包裹的内容，在没有被使用前，是不会进行任何的渲染 -->
+<template name="contentItem">
+  <button size="mini">{{ btnText }}</button>
+  <view>{{ content }}</view>
+</template>
+
+<template is="contentItem" data="{{ btnText: '按钮', content: '哈哈哈' }}" />
+<template is="contentItem" data="{{ btnText: '警告', content: '呵呵呵' }}" />
+<template is="contentItem" data="{{ btnText: '点击', content: '嘿嘿嘿' }}" />
+<template is="contentItem" data="{{ btnText: '登录', content: '嘻嘻嘻' }}" />
+<template is="contentItem" data="{{ btnText: '注册', content: '来来来' }}" />
+
+<import src="/wxml/template.wxml" />
+<template is="contentColumn" data="{{ tempText: '引用注册按钮', content: '来来来' }}" />
