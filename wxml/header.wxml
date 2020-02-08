@@ -1,0 +1,15 @@
+<!-- <include src="./nav.wxml" /> -->
+<view>
+ <view>首部</view>
+<include src="./nav.wxml" />
+</view>
+<!-- <include src="./nav.wxml" /> -->
+<!-- 
+include 导入:
+    1.将公共的wxml中的组件抽取到一个文件中
+    2.不能导入template/wxs,可以进行递归导入 -->
+<!-- 
+import 导入:
+    1.主要是导入template
+    2.不能进行递归导入 -->
+    

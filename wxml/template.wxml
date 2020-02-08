@@ -1,3 +1,4 @@
+<!-- <import src="/wxml/abc.wxml" /> 不能循环递归导入 -->
 <template name="contentColumn">
   <text>{{ tempText }}</text>
   <view>{{ content }}</view>

@@ -89,4 +89,9 @@
 <template is="contentItem" data="{{ btnText: '注册', content: '来来来' }}" />
 
 <import src="/wxml/template.wxml" />
+<!-- <import src="/wxml/abc.wxml" /> -->
+<!-- <include src="/wxml/template.wxml" /> include 不能导入模板 -->
+
 <template is="contentColumn" data="{{ tempText: '引用注册按钮', content: '来来来' }}" />
+
+<!-- <template is="abc"/> -->
