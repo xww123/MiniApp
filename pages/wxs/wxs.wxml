@@ -1,0 +1,12 @@
+<!--pages/wxs/wxs.wxml-->
+<!-- 2.2定义在单独的wxs文件中，再使用<wxs>标签进行导入 -->
+<!-- 这里只能使用相对路径，不能使用绝对路径 -->
+<wxs src="../../wxs/info.wxs" module="info" />
+<view>{{ info.message }}</view>
+<view>{{ info.name }}</view>
+<view>{{ info.sum(20,30) }}</view>
+
+<!-- 3.wxs的应用 -->
+<wxs src="../../wxs/format.wxs" module="format" />
+<view>{{ format.priceFormat(price) }}</view>
+<view>{{ format.priceFormat(price,3) }}</view>
