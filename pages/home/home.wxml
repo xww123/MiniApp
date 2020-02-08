@@ -8,3 +8,4 @@
 <view bindtap="handleViewClick">{{ message }}</view>
 
 <view wx:for="{{ list }}">{{ item.title }}</view>
+
