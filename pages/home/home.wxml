@@ -1,4 +1,24 @@
 <!--pages/home/home.wxml-->
+<text class="title">Hello World</text>
+<!-- 1.使用自定义组件的基本使用 -->
+<my-cpn />
+<my-cpn></my-cpn>
+
+<!-- 2.自定义组件的样式细节 -->
+<my-style />
+
+<!-- 3.给自定义组件传递数据 -->
+<my-prop title="哈哈1" titleclass="red"/>
+<my-prop title="呵呵1" titleclass="green"/>
+<my-prop titleclass="blue"/>
+
+<!-- 4.组件内部发出事件 -->
+<view>当前计数:{{ counter }}</view>
+<my-event bind:increment="handleIncrement"/>
+<view>-----------------\n</view>
+
+
+
 <text>Hello World</text>
 <button size="mini">按钮</button>
 
@@ -8,3 +28,4 @@
 <view bindtap="handleViewClick">{{ message }}</view>
 
 <view wx:for="{{ list }}">{{ item.title }}</view>
+

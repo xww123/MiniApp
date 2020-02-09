@@ -8,7 +8,8 @@ console.log(name)
 Page({
   data: {
     message: '哈哈',
-    list: []
+    list: [],
+    counter: 0
   },
   handleGetUserInfo(e){
     console.log('--------')
@@ -76,6 +77,12 @@ Page({
   },
   onPullDownRefresh(){
     console.log('下拉刷新')
+  },
+  handleIncrement(e){
+    console.log('in+++++',e)
+    this.setData({
+      counter: this.data.counter + 1
+    })
   }
 
 })

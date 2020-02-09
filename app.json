@@ -2,7 +2,10 @@
   "pages": [
     "pages/home/home",
     "pages/about/about",
-    "pages/category/category"
+    "pages/category/category",
+    "components/my-cpn/my-cpn",
+    "components/cpn1/cpn1",
+    "components/my-style/my-style"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ff5777",
@@ -28,6 +31,9 @@
         "selectedIconPath": "assets/tabbar/category_active.png"
       }
     ]
+  },
+  "usingComponents": {
+    "my-cpn": "/components/my-cpn/my-cpn"
   },
   "sitemapLocation": "sitemap12.json"
 }
