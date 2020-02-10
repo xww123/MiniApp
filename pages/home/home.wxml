@@ -17,15 +17,10 @@
 <my-event bind:increment="handleIncrement"/>
 <view>-----------------\n</view>
 
+<!-- 5.tab-control的练习 -->
+<tab-control  bind:itemclick="handleTabControlClick" 
+              titles="{{['衣服','裤子','鞋子','帽子']}}" />
 
-
-<text>Hello World</text>
-<button size="mini">按钮</button>
-
-<button size="mini" open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo">获取授权</button>
-<open-data type="userNickName"></open-data>
-
-<view bindtap="handleViewClick">{{ message }}</view>
-
-<view wx:for="{{ list }}">{{ item.title }}</view>
-
+<!-- 6.直接选中组件修改数据/调用方法 -->
+<button size="mini" bind:tap="handleIncrementCpn">修改组件内的数据</button>
+<my-selector class="sel-class" id="sel-id"/>

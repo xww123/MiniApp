@@ -83,6 +83,23 @@ Page({
     this.setData({
       counter: this.data.counter + 1
     })
+  },
+  handleTabControlClick(e){
+    console.log(e)
+  },
+  handleIncrementCpn(){
+    // console.log('--------')
+    // 1.组件对象.setData()
+    const my_sel = this.selectComponent('.sel-class')
+    // console.log(my_sel)
+
+    // 2.通过setData修改组件中的数据(不合理，破坏封装)
+    // my_sel.setData({
+    //   counter: my_sel.data.counter + 20
+    // })
+
+    // 3.通过方法对数据进行修改
+    my_sel.incrementCounter(10)
   }
 
 })
