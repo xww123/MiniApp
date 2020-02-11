@@ -1,5 +1,6 @@
 // pages/home/home.js
 // getApp()获取App()产生的示例对象
+import request from '../../service/network.js'
 const app = getApp()
 
 const name = app.globalData.name
@@ -10,72 +11,54 @@ Page({
     message: '哈哈',
     list: []
   },
-  handleGetUserInfo(e){
-    console.log('--------')
-    console.log(e)
-  },
   // 监听页面的生命周期函数
   // 页面被加载出来
   onLoad(){
-    console.log('onLoad')
     const _this = this
-    // 异步调用
-    wx.request({
-      url: 'http://123.207.32.32:8000/api/hy/recommend',
-      // 1.第一种传统写法
-      success: function(res){
-        console.log(res)
-        const data = res.data.data.list
-        // this.data.list = data
-        _this.setData({
-          list: data
-        })
-      }
+    // ------------------1.原生的方式发送网络请求-----------
+    // this.get_data_origin()
 
-      // 2.第二种函数使用，es6增强型写法
-      // success(){}
-
-      // 3.第三种箭头函数
-      // success:(res)=>{
-      //     console.log(res)
-      //     const data = res.data.data.list
-      //     // this.data.list = data
-      //     this.setData({
-      //       list: data
-      //     })
-      // }
+    // ------------------2.使用封装的request发送网络请求----------
+    // Promise最大的好处就是防止出现回调地狱
+    request({
+      url: 'http://123.207.32.32:8000/api/hy/recommend'
+    }).then(res=>{
+      console.log(res)
+    }).catch(err=>{
+      console.log(err)
     })
   },
-  // 页面显示出来时会回调
-  onShow(){
-    console.log('onShow')
-  },
-  // 页面初次渲染完成时，只会执行一次
-  onReady(){
-    console.log('onReady')
-  },
-  // 页面隐藏时回调
-  onHide(){
-    console.log('onHide')
-  },
-  // 页面之间返回按钮点击时回调
-  onUnload(){
-    console.log('onUnload')
-  },
-  handleViewClick(){
-    console.log('哈哈被点击了')
-  },
-  // ----------------其他事件--------------------------
-  // 监听页面的滚动
-  onPageScroll(obj){
-    console.log(obj)
-  },
-  // 监听页面滚动到底部
-  onReachBottom(){
-    console.log('滚动到底部')
-  },
-  onPullDownRefresh(){
-    console.log('下拉刷新')
-  }
+  get_data_origin(){
 
+    // 异步调用
+    // wx.request({
+    //   url: 'http://123.207.32.32:8000/api/hy/home/data',
+    //   data:{
+    //     type:'sell', 
+    //     page:1
+    //   },
+    //   // 1.第一种传统写法
+    //   success: function(res){
+    //     console.log(res)
+    //   }
+    // })
+    // 2.post请求
+    wx.request({
+      url: 'http://httpbin.org/post',
+      method: 'post',
+      data: {
+        name: 'coderwhy',
+        age: 18
+      },
+      // 1.第一种传统写法
+      success: function (res) {
+        console.log(res)
+      },
+      fail: function (err) {
+        console.log('---')
+        console.log(err)
+      }
+    })
+  }
+  
 })
