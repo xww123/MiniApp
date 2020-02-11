@@ -8,19 +8,47 @@
 <my-style />
 
 <!-- 3.给自定义组件传递数据 -->
-<my-prop title="哈哈1" titleclass="red"/>
-<my-prop title="呵呵1" titleclass="green"/>
-<my-prop titleclass="blue"/>
+<my-prop title="哈哈1" titleclass="red" />
+<my-prop title="呵呵1" titleclass="green" />
+<my-prop titleclass="blue" />
 
 <!-- 4.组件内部发出事件 -->
 <view>当前计数:{{ counter }}</view>
-<my-event bind:increment="handleIncrement"/>
+<my-event bind:increment="handleIncrement" />
 <view>-----------------\n</view>
 
 <!-- 5.tab-control的练习 -->
-<tab-control  bind:itemclick="handleTabControlClick" 
-              titles="{{['衣服','裤子','鞋子','帽子']}}" />
+<tab-control bind:itemclick="handleTabControlClick" titles="{{['衣服','裤子','鞋子','帽子']}}" />
 
 <!-- 6.直接选中组件修改数据/调用方法 -->
 <button size="mini" bind:tap="handleIncrementCpn">修改组件内的数据</button>
-<my-selector class="sel-class" id="sel-id"/>
+<my-selector class="sel-class" id="sel-id" />
+
+<view>---------------</view>
+<!-- 7.插槽的使用 -->
+<!-- 7.1单个插槽的使用 -->
+<my-slot>
+  <button size="mini">我是插入的按钮</button>
+</my-slot>
+<my-slot>
+  <text>哈哈哈</text>
+</my-slot>
+<my-slot>
+  <image src="http://s3.mogucdn.com/p2/161229/127390137_6586hlk5j6bbig04211hd228bigg1_640x960.jpg" />
+</my-slot>
+<my-slot>
+  <slider value="60"></slider>
+</my-slot>
+
+<!-- 7.2多个插槽的使用 -->
+<!-- 注意事项： -->
+<!-- 1.给每个插槽起一个名字 -->
+<!-- 2.必须在component对象中添加一个选项：options -->
+<button size="mini" bind:tap="handleChangeShow">切换显示</button>
+<block wx:if="{{ isShow }}">
+  <my-mslot>
+    <button size="mini" slot="slot2">我是插入的按钮</button>
+    <slider slot="slot1"></slider>
+    <text slot="slot3">哈哈哈</text>
+  </my-mslot>
+</block>

@@ -4,7 +4,9 @@
     "my-prop": "/components/my-prop/my-prop",
     "my-event": "/components/my-event/my-event",
     "tab-control": "/components/w-tab-control/w-tab-control",
-    "my-selector": "/components/my-selector/my-sel"
+    "my-selector": "/components/my-selector/my-sel",
+    "my-slot": "/components/my-slot/my-slot",
+    "my-mslot": "/components/my-mslot/my-mslot"
   },
   "enablePullDownRefresh": true
 }

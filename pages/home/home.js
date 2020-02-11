@@ -9,7 +9,8 @@ Page({
   data: {
     message: '哈哈',
     list: [],
-    counter: 0
+    counter: 0,
+    isShow: false
   },
   handleGetUserInfo(e){
     console.log('--------')
@@ -100,6 +101,11 @@ Page({
 
     // 3.通过方法对数据进行修改
     my_sel.incrementCounter(10)
+  },
+  handleChangeShow(){
+    this.setData({
+      isShow: !this.data.isShow
+    })
   }
 
 })
