@@ -12,3 +12,6 @@
 
 <!-- 4.actionSheet -->
 <button size="mini" bind:tap="handleActionSheet">显示actionSheet</button>
+
+<!-- 5.分享按钮 -->
+<button size="mini" open-type="share">分享</button>

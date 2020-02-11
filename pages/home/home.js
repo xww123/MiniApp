@@ -54,5 +54,13 @@ Page({
         console.log(res)
       }
     })
+  },
+  onShareAppMessage:function(options){
+    // console.log(options)
+    return {
+      title: '你好啊，李银河',
+      path:'/pages/about/about',
+      imageUrl: 'http://s11.mogucdn.com/mlcdn/c45406/171008_28ba9aade1cc95bjh1cfbb11c0ehi_640x960.jpg'
+    }
   }
 })
