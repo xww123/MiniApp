@@ -1,81 +1,58 @@
 // pages/home/home.js
-// getApp()获取App()产生的示例对象
-const app = getApp()
-
-const name = app.globalData.name
-const age = app.globalData.age
-console.log(name)
 Page({
-  data: {
-    message: '哈哈',
-    list: []
-  },
-  handleGetUserInfo(e){
-    console.log('--------')
-    console.log(e)
-  },
-  // 监听页面的生命周期函数
-  // 页面被加载出来
-  onLoad(){
-    console.log('onLoad')
-    const _this = this
-    // 异步调用
-    wx.request({
-      url: 'http://123.207.32.32:8000/api/hy/recommend',
-      // 1.第一种传统写法
-      success: function(res){
-        console.log(res)
-        const data = res.data.data.list
-        // this.data.list = data
-        _this.setData({
-          list: data
-        })
+  handleShowToast(){
+    wx.showToast({
+      title: '你好啊',
+      duration:5000,
+      icon:'success',
+      // image: '/assets/icon/icon.png',
+      mask:true,
+      success:function(){
+        console.log('success...')
+      },
+      fail:function(){
+        console.log('show error...')
+      },
+      complete:function(){
+        console.log('complete')
       }
-
-      // 2.第二种函数使用，es6增强型写法
-      // success(){}
-
-      // 3.第三种箭头函数
-      // success:(res)=>{
-      //     console.log(res)
-      //     const data = res.data.data.list
-      //     // this.data.list = data
-      //     this.setData({
-      //       list: data
-      //     })
-      // }
     })
   },
-  // 页面显示出来时会回调
-  onShow(){
-    console.log('onShow')
+  handleShowModal(){
+    wx.showModal({
+      title: '真是的..',
+      content: '这回是真的了呢',
+      // showCancel:false,
+      cancelText:'退出',
+      cancelColor: 'red',
+      success:function(res){
+        console.log(res)
+        if(res.cancel){
+          console.log('点击了取消')
+        }
+        if(res.confirm){
+          console.log('用户点击了确定按钮')
+        }
+      },
+    })
   },
-  // 页面初次渲染完成时，只会执行一次
-  onReady(){
-    console.log('onReady')
+  handleShowLoading(){
+    wx.showLoading({
+      title: 'loading...',
+      mask:true
+      // 必须手动hideLoading才会让showLoading消失
+    })
+    setTimeout(()=>{
+      wx.hideLoading()
+    },3000)
   },
-  // 页面隐藏时回调
-  onHide(){
-    console.log('onHide')
-  },
-  // 页面之间返回按钮点击时回调
-  onUnload(){
-    console.log('onUnload')
-  },
-  handleViewClick(){
-    console.log('哈哈被点击了')
-  },
-  // ----------------其他事件--------------------------
-  // 监听页面的滚动
-  onPageScroll(obj){
-    console.log(obj)
-  },
-  // 监听页面滚动到底部
-  onReachBottom(){
-    console.log('滚动到底部')
-  },
-  onPullDownRefresh(){
-    console.log('下拉刷新')
+  handleActionSheet(){
+    wx.showActionSheet({
+      itemList: ['相册','拍照'],
+      itemColor: 'red',
+      success: function(res){
+        console.log(res)
+      }
+    })
   }
-
 })

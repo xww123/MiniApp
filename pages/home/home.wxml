@@ -1,10 +1,14 @@
 <!--pages/home/home.wxml-->
 <text>Hello World</text>
-<button size="mini">按钮</button>
+<button>安娜</button>
+<!-- 1.Toast -->
+<button size="mini" bind:tap="handleShowToast">按钮</button>
 
-<button size="mini" open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo">获取授权</button>
-<open-data type="userNickName"></open-data>
+<!-- 2.Modal -->
+<button size="mini" bind:tap="handleShowModal">模态对话框</button>
 
-<view bindtap="handleViewClick">{{ message }}</view>
+<!-- 3.Loading -->
+<button size="mini" bind:tap="handleShowLoading">加载</button>
 
-<view wx:for="{{ list }}">{{ item.title }}</view>
+<!-- 4.actionSheet -->
+<button size="mini" bind:tap="handleActionSheet">显示actionSheet</button>
