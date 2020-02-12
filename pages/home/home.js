@@ -76,6 +76,11 @@ Page({
   },
   onPullDownRefresh(){
     console.log('下拉刷新')
+  },
+  handleJump(){
+    wx.navigateTo({
+      url: '/pages/detail/detail?title=howareyou?'
+    })
   }
 
 })

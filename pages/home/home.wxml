@@ -2,9 +2,30 @@
 <text>Hello World</text>
 <button size="mini">按钮</button>
 
-<button size="mini" open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo">获取授权</button>
-<open-data type="userNickName"></open-data>
+<!-- 1.navigator页面跳转 -->
+<navigator url="/pages/detail/detail">跳到详情页</navigator>
 
-<view bindtap="handleViewClick">{{ message }}</view>
+<!-- 2.navigator属性：open-type -->
+<navigator  url="/pages/detail/detail"
+            open-type="redirect"
+        >
+  跳到详情页(redirect)
+</navigator>
 
-<view wx:for="{{ list }}">{{ item.title }}</view>
+<navigator  url="/pages/category/category"
+            open-type="switchTab">
+  跳到分类页(switchTab)
+</navigator>
+
+<navigator  url="/pages/detail/detail"
+            open-type="reLaunch">
+  跳到分类页(reLaunch)
+</navigator>
+
+<!-- 3.跳转过程中数据的传递 -->
+<navigator url="/pages/detail/detail?name=why&age=18&height=1.88">跳到详情页</navigator>
+<view>{{ message }}</view>
+
+<view>---------------</view>
+<!-- 4.通过代码进行页面跳转 -->
+<button size="mini" bind:tap="handleJump">跳到详情页</button>
